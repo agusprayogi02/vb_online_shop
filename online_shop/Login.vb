@@ -39,14 +39,14 @@ Public Class Login
             txtCapt.Text = ""
             Return
         End If
-        Call cekkoneksi()
-            adapter = New SqlDataAdapter("SELECT * FROM [dbo].[login] WHERE username='" + txtEmail.Text + "' AND password='" + txtPassword.Text + "'", conn)
+        Call Cekkoneksi()
+        adapter = New SqlDataAdapter("SELECT * FROM [dbo].[login] WHERE username='" + txtEmail.Text + "' AND password='" + txtPassword.Text + "'", conn)
             adapter.Fill(ds)
             If ds.Tables(0).Rows.Count > 0 Then
-                Me.Hide()
-                MenuUtama.Show()
-            Else
-                MessageBox.Show(Nothing, "Akun Salah!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MenuUtama.Show()
+            Hide()
+        Else
+            MessageBox.Show(Nothing, "Akun Salah!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
 
     End Sub
