@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MenuUtama
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,13 @@ Partial Class MenuUtama
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pMenu = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnAkun = New System.Windows.Forms.Button()
@@ -32,12 +35,21 @@ Partial Class MenuUtama
         Me.btnClose = New System.Windows.Forms.Button()
         Me.pBottom = New System.Windows.Forms.Panel()
         Me.pTop = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.UserDataSet = New online_shop.userDataSet()
         Me.btnCencel = New System.Windows.Forms.Button()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnTambah = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.ComboRole = New System.Windows.Forms.ComboBox()
         Me.btnInginUp = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -45,24 +57,15 @@ Partial Class MenuUtama
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.lblEdit = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UserDataSet = New online_shop.userDataSet()
         Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.pMenu.SuspendLayout()
         Me.pheader.SuspendLayout()
         Me.pBottom.SuspendLayout()
         Me.pTop.SuspendLayout()
-        Me.Panel5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'pMenu
@@ -76,6 +79,41 @@ Partial Class MenuUtama
         Me.pMenu.Name = "pMenu"
         Me.pMenu.Size = New System.Drawing.Size(179, 461)
         Me.pMenu.TabIndex = 0
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label4.Location = New System.Drawing.Point(35, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(108, 20)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "Menu Admin"
+        '
+        'Button4
+        '
+        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Location = New System.Drawing.Point(3, 50)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(173, 38)
+        Me.Button4.TabIndex = 0
+        Me.Button4.Text = "show User"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(4, 92)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(173, 38)
+        Me.Button3.TabIndex = 0
+        Me.Button3.Text = "show Botton"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -165,17 +203,67 @@ Partial Class MenuUtama
         '
         'pTop
         '
+        Me.pTop.Controls.Add(Me.DataGridView1)
         Me.pTop.Controls.Add(Me.btnCencel)
         Me.pTop.Controls.Add(Me.btnHapus)
         Me.pTop.Controls.Add(Me.btnUpdate)
         Me.pTop.Controls.Add(Me.btnTambah)
         Me.pTop.Controls.Add(Me.Panel5)
-        Me.pTop.Controls.Add(Me.DataGridView1)
         Me.pTop.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pTop.Location = New System.Drawing.Point(179, 50)
         Me.pTop.Name = "pTop"
         Me.pTop.Size = New System.Drawing.Size(505, 411)
         Me.pTop.TabIndex = 3
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.UsernameDataGridViewTextBoxColumn, Me.PasswordDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.LoginBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(9, 7)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(486, 182)
+        Me.DataGridView1.TabIndex = 3
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UsernameDataGridViewTextBoxColumn
+        '
+        Me.UsernameDataGridViewTextBoxColumn.DataPropertyName = "username"
+        Me.UsernameDataGridViewTextBoxColumn.HeaderText = "username"
+        Me.UsernameDataGridViewTextBoxColumn.Name = "UsernameDataGridViewTextBoxColumn"
+        Me.UsernameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PasswordDataGridViewTextBoxColumn
+        '
+        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
+        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
+        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
+        Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RoleDataGridViewTextBoxColumn
+        '
+        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "role"
+        Me.RoleDataGridViewTextBoxColumn.HeaderText = "role"
+        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
+        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LoginBindingSource
+        '
+        Me.LoginBindingSource.DataMember = "login"
+        Me.LoginBindingSource.DataSource = Me.UserDataSet
+        '
+        'UserDataSet
+        '
+        Me.UserDataSet.DataSetName = "userDataSet"
+        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnCencel
         '
@@ -190,7 +278,7 @@ Partial Class MenuUtama
         'btnHapus
         '
         Me.btnHapus.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!)
-        Me.btnHapus.Location = New System.Drawing.Point(19, 309)
+        Me.btnHapus.Location = New System.Drawing.Point(19, 304)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(182, 39)
         Me.btnHapus.TabIndex = 2
@@ -201,7 +289,7 @@ Partial Class MenuUtama
         '
         Me.btnUpdate.Enabled = False
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!)
-        Me.btnUpdate.Location = New System.Drawing.Point(19, 260)
+        Me.btnUpdate.Location = New System.Drawing.Point(19, 250)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(182, 39)
         Me.btnUpdate.TabIndex = 2
@@ -211,7 +299,7 @@ Partial Class MenuUtama
         'btnTambah
         '
         Me.btnTambah.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!)
-        Me.btnTambah.Location = New System.Drawing.Point(19, 211)
+        Me.btnTambah.Location = New System.Drawing.Point(19, 196)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(182, 39)
         Me.btnTambah.TabIndex = 2
@@ -221,7 +309,9 @@ Partial Class MenuUtama
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel5.Controls.Add(Me.ComboRole)
         Me.Panel5.Controls.Add(Me.btnInginUp)
+        Me.Panel5.Controls.Add(Me.Label5)
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.Label2)
         Me.Panel5.Controls.Add(Me.Label1)
@@ -229,26 +319,45 @@ Partial Class MenuUtama
         Me.Panel5.Controls.Add(Me.txtEmail)
         Me.Panel5.Controls.Add(Me.txtId)
         Me.Panel5.Controls.Add(Me.lblEdit)
-        Me.Panel5.Location = New System.Drawing.Point(216, 211)
+        Me.Panel5.Location = New System.Drawing.Point(216, 194)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(276, 187)
+        Me.Panel5.Size = New System.Drawing.Size(276, 204)
         Me.Panel5.TabIndex = 1
+        '
+        'ComboRole
+        '
+        Me.ComboRole.Enabled = False
+        Me.ComboRole.FormattingEnabled = True
+        Me.ComboRole.Location = New System.Drawing.Point(89, 131)
+        Me.ComboRole.Name = "ComboRole"
+        Me.ComboRole.Size = New System.Drawing.Size(168, 21)
+        Me.ComboRole.TabIndex = 4
         '
         'btnInginUp
         '
         Me.btnInginUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!)
-        Me.btnInginUp.Location = New System.Drawing.Point(88, 136)
+        Me.btnInginUp.Location = New System.Drawing.Point(89, 164)
         Me.btnInginUp.Name = "btnInginUp"
-        Me.btnInginUp.Size = New System.Drawing.Size(169, 39)
+        Me.btnInginUp.Size = New System.Drawing.Size(169, 33)
         Me.btnInginUp.TabIndex = 3
         Me.btnInginUp.Text = "Ingin Update ??"
         Me.btnInginUp.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 137)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(37, 16)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "Role"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 106)
+        Me.Label3.Location = New System.Drawing.Point(12, 108)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 16)
         Me.Label3.TabIndex = 2
@@ -258,7 +367,7 @@ Partial Class MenuUtama
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 78)
+        Me.Label2.Location = New System.Drawing.Point(12, 79)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(42, 16)
         Me.Label2.TabIndex = 2
@@ -311,81 +420,9 @@ Partial Class MenuUtama
         Me.lblEdit.TabIndex = 0
         Me.lblEdit.Text = "Form User"
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.UsernameDataGridViewTextBoxColumn, Me.PasswordDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.LoginBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 8)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(487, 187)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsernameDataGridViewTextBoxColumn
-        '
-        Me.UsernameDataGridViewTextBoxColumn.DataPropertyName = "username"
-        Me.UsernameDataGridViewTextBoxColumn.HeaderText = "username"
-        Me.UsernameDataGridViewTextBoxColumn.Name = "UsernameDataGridViewTextBoxColumn"
-        Me.UsernameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'PasswordDataGridViewTextBoxColumn
-        '
-        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
-        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
-        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
-        Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'LoginBindingSource
-        '
-        Me.LoginBindingSource.DataMember = "login"
-        Me.LoginBindingSource.DataSource = Me.UserDataSet
-        '
-        'UserDataSet
-        '
-        Me.UserDataSet.DataSetName = "userDataSet"
-        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'LoginTableAdapter
         '
         Me.LoginTableAdapter.ClearBeforeFill = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(3, 50)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(173, 38)
-        Me.Button3.TabIndex = 0
-        Me.Button3.Text = "show Botton"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(3, 94)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(173, 38)
-        Me.Button4.TabIndex = 0
-        Me.Button4.Text = "show User"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(35, 20)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(108, 20)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Menu Admin"
         '
         'MenuUtama
         '
@@ -405,11 +442,11 @@ Partial Class MenuUtama
         Me.pheader.PerformLayout()
         Me.pBottom.ResumeLayout(False)
         Me.pTop.ResumeLayout(False)
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -423,7 +460,6 @@ Partial Class MenuUtama
     Friend WithEvents btnAkun As Button
     Friend WithEvents pBottom As Panel
     Friend WithEvents pTop As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnCencel As Button
     Friend WithEvents btnHapus As Button
     Friend WithEvents btnUpdate As Button
@@ -437,13 +473,17 @@ Partial Class MenuUtama
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtId As TextBox
     Friend WithEvents lblEdit As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ComboRole As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents UserDataSet As userDataSet
     Friend WithEvents LoginBindingSource As BindingSource
     Friend WithEvents LoginTableAdapter As userDataSetTableAdapters.loginTableAdapter
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PasswordDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Label4 As Label
+    Friend WithEvents RoleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
