@@ -46,19 +46,19 @@ Partial Class MenuUtama
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.lblEdit = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.UserDataSet = New online_shop.userDataSet()
+        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UserDataSet = New online_shop.userDataSet()
-        Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -316,6 +316,20 @@ Partial Class MenuUtama
         Me.DataGridView1.Size = New System.Drawing.Size(487, 187)
         Me.DataGridView1.TabIndex = 0
         '
+        'UserDataSet
+        '
+        Me.UserDataSet.DataSetName = "userDataSet"
+        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LoginBindingSource
+        '
+        Me.LoginBindingSource.DataMember = "login"
+        Me.LoginBindingSource.DataSource = Me.UserDataSet
+        '
+        'LoginTableAdapter
+        '
+        Me.LoginTableAdapter.ClearBeforeFill = True
+        '
         'IdDataGridViewTextBoxColumn
         '
         Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
@@ -328,26 +342,14 @@ Partial Class MenuUtama
         Me.UsernameDataGridViewTextBoxColumn.DataPropertyName = "username"
         Me.UsernameDataGridViewTextBoxColumn.HeaderText = "username"
         Me.UsernameDataGridViewTextBoxColumn.Name = "UsernameDataGridViewTextBoxColumn"
+        Me.UsernameDataGridViewTextBoxColumn.ReadOnly = True
         '
         'PasswordDataGridViewTextBoxColumn
         '
         Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
         Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
         Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
-        '
-        'LoginBindingSource
-        '
-        Me.LoginBindingSource.DataMember = "login"
-        Me.LoginBindingSource.DataSource = Me.UserDataSet
-        '
-        'UserDataSet
-        '
-        Me.UserDataSet.DataSetName = "userDataSet"
-        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LoginTableAdapter
-        '
-        Me.LoginTableAdapter.ClearBeforeFill = True
+        Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
         '
         'MenuUtama
         '
@@ -368,8 +370,8 @@ Partial Class MenuUtama
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -384,12 +386,6 @@ Partial Class MenuUtama
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents UserDataSet As userDataSet
-    Friend WithEvents LoginBindingSource As BindingSource
-    Friend WithEvents LoginTableAdapter As userDataSetTableAdapters.loginTableAdapter
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PasswordDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents btnCencel As Button
     Friend WithEvents btnHapus As Button
     Friend WithEvents btnUpdate As Button
@@ -403,4 +399,10 @@ Partial Class MenuUtama
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtId As TextBox
     Friend WithEvents lblEdit As Label
+    Friend WithEvents UserDataSet As userDataSet
+    Friend WithEvents LoginBindingSource As BindingSource
+    Friend WithEvents LoginTableAdapter As userDataSetTableAdapters.loginTableAdapter
+    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PasswordDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
