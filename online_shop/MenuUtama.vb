@@ -91,4 +91,14 @@
             End If
         End If
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click, Button4.Click
+        pTop.Visible = False
+        pBottom.Visible = False
+        If sender Is Button3 Then
+            pBottom.Visible = True
+        Else
+            pTop.Visible = True
+        End If
+    End Sub
 End Class

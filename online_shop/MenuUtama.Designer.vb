@@ -23,15 +23,15 @@ Partial Class MenuUtama
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pMenu = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnAkun = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pheader = New System.Windows.Forms.Panel()
         Me.LbTitle = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.pBottom = New System.Windows.Forms.Panel()
+        Me.pTop = New System.Windows.Forms.Panel()
         Me.btnCencel = New System.Windows.Forms.Button()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -46,29 +46,36 @@ Partial Class MenuUtama
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.lblEdit = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.UserDataSet = New online_shop.userDataSet()
-        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
+        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.UserDataSet = New online_shop.userDataSet()
+        Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.pMenu.SuspendLayout()
+        Me.pheader.SuspendLayout()
+        Me.pBottom.SuspendLayout()
+        Me.pTop.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
+        'pMenu
         '
-        Me.Panel1.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(179, 461)
-        Me.Panel1.TabIndex = 0
+        Me.pMenu.BackColor = System.Drawing.Color.SteelBlue
+        Me.pMenu.Controls.Add(Me.Label4)
+        Me.pMenu.Controls.Add(Me.Button4)
+        Me.pMenu.Controls.Add(Me.Button3)
+        Me.pMenu.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pMenu.Location = New System.Drawing.Point(0, 0)
+        Me.pMenu.Name = "pMenu"
+        Me.pMenu.Size = New System.Drawing.Size(179, 461)
+        Me.pMenu.TabIndex = 0
         '
         'Button2
         '
@@ -112,16 +119,16 @@ Partial Class MenuUtama
         Me.btnAkun.Text = "Kelola Akun"
         Me.btnAkun.UseVisualStyleBackColor = False
         '
-        'Panel2
+        'pheader
         '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Panel2.Controls.Add(Me.LbTitle)
-        Me.Panel2.Controls.Add(Me.btnClose)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(179, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(505, 50)
-        Me.Panel2.TabIndex = 1
+        Me.pheader.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.pheader.Controls.Add(Me.LbTitle)
+        Me.pheader.Controls.Add(Me.btnClose)
+        Me.pheader.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pheader.Location = New System.Drawing.Point(179, 0)
+        Me.pheader.Name = "pheader"
+        Me.pheader.Size = New System.Drawing.Size(505, 50)
+        Me.pheader.TabIndex = 1
         '
         'LbTitle
         '
@@ -129,9 +136,9 @@ Partial Class MenuUtama
         Me.LbTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LbTitle.Location = New System.Drawing.Point(15, 15)
         Me.LbTitle.Name = "LbTitle"
-        Me.LbTitle.Size = New System.Drawing.Size(108, 20)
+        Me.LbTitle.Size = New System.Drawing.Size(123, 20)
         Me.LbTitle.TabIndex = 1
-        Me.LbTitle.Text = "Menu Admin"
+        Me.LbTitle.Text = "Halaman User"
         '
         'btnClose
         '
@@ -144,31 +151,31 @@ Partial Class MenuUtama
         Me.btnClose.TabIndex = 0
         Me.btnClose.UseVisualStyleBackColor = True
         '
-        'Panel3
+        'pBottom
         '
-        Me.Panel3.Controls.Add(Me.Button2)
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.btnAkun)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(179, 50)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(505, 411)
-        Me.Panel3.TabIndex = 2
-        Me.Panel3.Visible = False
+        Me.pBottom.Controls.Add(Me.Button2)
+        Me.pBottom.Controls.Add(Me.Button1)
+        Me.pBottom.Controls.Add(Me.btnAkun)
+        Me.pBottom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pBottom.Location = New System.Drawing.Point(179, 50)
+        Me.pBottom.Name = "pBottom"
+        Me.pBottom.Size = New System.Drawing.Size(505, 411)
+        Me.pBottom.TabIndex = 2
+        Me.pBottom.Visible = False
         '
-        'Panel4
+        'pTop
         '
-        Me.Panel4.Controls.Add(Me.btnCencel)
-        Me.Panel4.Controls.Add(Me.btnHapus)
-        Me.Panel4.Controls.Add(Me.btnUpdate)
-        Me.Panel4.Controls.Add(Me.btnTambah)
-        Me.Panel4.Controls.Add(Me.Panel5)
-        Me.Panel4.Controls.Add(Me.DataGridView1)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(179, 50)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(505, 411)
-        Me.Panel4.TabIndex = 3
+        Me.pTop.Controls.Add(Me.btnCencel)
+        Me.pTop.Controls.Add(Me.btnHapus)
+        Me.pTop.Controls.Add(Me.btnUpdate)
+        Me.pTop.Controls.Add(Me.btnTambah)
+        Me.pTop.Controls.Add(Me.Panel5)
+        Me.pTop.Controls.Add(Me.DataGridView1)
+        Me.pTop.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pTop.Location = New System.Drawing.Point(179, 50)
+        Me.pTop.Name = "pTop"
+        Me.pTop.Size = New System.Drawing.Size(505, 411)
+        Me.pTop.TabIndex = 3
         '
         'btnCencel
         '
@@ -316,20 +323,6 @@ Partial Class MenuUtama
         Me.DataGridView1.Size = New System.Drawing.Size(487, 187)
         Me.DataGridView1.TabIndex = 0
         '
-        'UserDataSet
-        '
-        Me.UserDataSet.DataSetName = "userDataSet"
-        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LoginBindingSource
-        '
-        Me.LoginBindingSource.DataMember = "login"
-        Me.LoginBindingSource.DataSource = Me.UserDataSet
-        '
-        'LoginTableAdapter
-        '
-        Me.LoginTableAdapter.ClearBeforeFill = True
-        '
         'IdDataGridViewTextBoxColumn
         '
         Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
@@ -351,40 +344,85 @@ Partial Class MenuUtama
         Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
         Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'LoginBindingSource
+        '
+        Me.LoginBindingSource.DataMember = "login"
+        Me.LoginBindingSource.DataSource = Me.UserDataSet
+        '
+        'UserDataSet
+        '
+        Me.UserDataSet.DataSetName = "userDataSet"
+        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LoginTableAdapter
+        '
+        Me.LoginTableAdapter.ClearBeforeFill = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(3, 50)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(173, 38)
+        Me.Button3.TabIndex = 0
+        Me.Button3.Text = "show Botton"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(3, 94)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(173, 38)
+        Me.Button4.TabIndex = 0
+        Me.Button4.Text = "show User"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label4.Location = New System.Drawing.Point(35, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(108, 20)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "Menu Admin"
+        '
         'MenuUtama
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 461)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pTop)
+        Me.Controls.Add(Me.pBottom)
+        Me.Controls.Add(Me.pheader)
+        Me.Controls.Add(Me.pMenu)
         Me.Name = "MenuUtama"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
+        Me.pMenu.ResumeLayout(False)
+        Me.pMenu.PerformLayout()
+        Me.pheader.ResumeLayout(False)
+        Me.pheader.PerformLayout()
+        Me.pBottom.ResumeLayout(False)
+        Me.pTop.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pMenu As Panel
+    Friend WithEvents pheader As Panel
     Friend WithEvents btnClose As Button
     Friend WithEvents LbTitle As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents btnAkun As Button
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents pBottom As Panel
+    Friend WithEvents pTop As Panel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnCencel As Button
     Friend WithEvents btnHapus As Button
@@ -405,4 +443,7 @@ Partial Class MenuUtama
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PasswordDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Label4 As Label
 End Class
