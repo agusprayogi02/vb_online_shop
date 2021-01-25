@@ -161,13 +161,11 @@ Public Class MenuUtama
         Call getData()
     End Sub
 
-    Private Sub txtId_TextChanged(sender As Object, e As EventArgs) Handles txtId.TextChanged
-
-    End Sub
-
     Private Sub btnKosongkan_Click(sender As Object, e As EventArgs) Handles btnKosongkan.Click
         Call kosongkanBarang()
     End Sub
+
+    'Kelola Barang
 
     Private Sub Tambah_Click(sender As Object, e As EventArgs) Handles Tambah.Click
         If NamaTextBox.Text.Trim = "" And HargaTextBox.Text.Trim = "" And StokTextBox.Text.Trim = "" Then
@@ -180,7 +178,7 @@ Public Class MenuUtama
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnUpdateBarang.Click
         If NamaTextBox.Text.Trim = "" And HargaTextBox.Text.Trim = "" And StokTextBox.Text.Trim = "" Then
             MsgBox("Id Harus diisi!")
             Return
@@ -202,7 +200,18 @@ Public Class MenuUtama
         HargaTextBox.Text = reg.Replace(HargaTextBox.Text, "")
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick, DataGridView2.CellClick
+        Dim i = DataGridView2.CurrentRow.Index
+        With DataGridView2.Rows(i)
+            KdTextBox.Text = .Cells(0).Value
+            NamaTextBox.Text = .Cells(1).Value
+            HargaTextBox.Text = .Cells(2).Value
+            StokTextBox.Text = .Cells(3).Value
+            IdTextBox.Text = .Cells(3).Value
+        End With
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnHapusBarang.Click
         If KdTextBox.Text.Trim = "" Then
             MsgBox("Kd Barang Hapus di Isi!")
             Return
@@ -215,10 +224,13 @@ Public Class MenuUtama
         End If
     End Sub
 
+
+    'Kelola Pembelian 
+
     Private Sub Button3_Click_1(sender As Object, e As EventArgs)
         Beli_idTextBox.Text = ""
         UsernameTextBox.Text = ""
-        NamaTextBox.Text = ""
+        NamaTB.Text = ""
         Beli_jumlahTextBox.Text = ""
         Beli_tanggalDateTimePicker.Value = Now
     End Sub
@@ -228,7 +240,7 @@ Public Class MenuUtama
         With DataGridView3.Rows(i)
             Beli_idTextBox.Text = .Cells(0).Value
             UsernameTextBox.Text = .Cells(1).Value
-            NamaTextBox.Text = .Cells(2).Value
+            NamaTB.Text = .Cells(2).Value
             Beli_jumlahTextBox.Text = .Cells(7).Value
             Beli_tanggalDateTimePicker.Value = .Cells(6).Value
             User_beliTextBox.Text = .Cells(4).Value
@@ -237,7 +249,7 @@ Public Class MenuUtama
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        If Beli_idTextBox.Text.Trim = "" And UsernameTextBox.Text.Trim = "" And NamaTextBox.Text.Trim = "" And Beli_jumlahTextBox.Text.Trim = "" And Beli_jumlahTextBox.Text.Trim = "" Then
+        If Beli_idTextBox.Text.Trim = "" And UsernameTextBox.Text.Trim = "" And NamaTB.Text.Trim = "" And Beli_jumlahTextBox.Text.Trim = "" And Beli_jumlahTextBox.Text.Trim = "" Then
             MsgBox("Harus di Isi Semua!")
             Return
         End If

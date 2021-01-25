@@ -67,8 +67,8 @@ Partial Class MenuUtama
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.lblEdit = New System.Windows.Forms.Label()
         Me.pBarang = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnHapusBarang = New System.Windows.Forms.Button()
+        Me.btnUpdateBarang = New System.Windows.Forms.Button()
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.IdTextBox = New System.Windows.Forms.TextBox()
@@ -89,9 +89,11 @@ Partial Class MenuUtama
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.NamaTextBox1 = New System.Windows.Forms.TextBox()
+        Me.BarangTextBox = New System.Windows.Forms.TextBox()
         Me.PembelianBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.User_beliTextBox = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.NamaTB = New System.Windows.Forms.TextBox()
         Me.Beli_tanggalDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.Beli_jumlahTextBox = New System.Windows.Forms.TextBox()
         Me.UsernameTextBox = New System.Windows.Forms.TextBox()
@@ -110,8 +112,6 @@ Partial Class MenuUtama
         Me.PembelianTableAdapter = New online_shop.userDataSetTableAdapters.pembelianTableAdapter()
         Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
         Me.TableAdapterManager = New online_shop.userDataSetTableAdapters.TableAdapterManager()
-        Me.User_beliTextBox = New System.Windows.Forms.TextBox()
-        Me.BarangTextBox = New System.Windows.Forms.TextBox()
         StokLabel = New System.Windows.Forms.Label()
         KdLabel = New System.Windows.Forms.Label()
         NamaLabel = New System.Windows.Forms.Label()
@@ -564,8 +564,8 @@ Partial Class MenuUtama
         '
         'pBarang
         '
-        Me.pBarang.Controls.Add(Me.Button2)
-        Me.pBarang.Controls.Add(Me.Button1)
+        Me.pBarang.Controls.Add(Me.btnHapusBarang)
+        Me.pBarang.Controls.Add(Me.btnUpdateBarang)
         Me.pBarang.Controls.Add(Me.Tambah)
         Me.pBarang.Controls.Add(Me.Panel2)
         Me.pBarang.Controls.Add(Me.DataGridView2)
@@ -575,23 +575,23 @@ Partial Class MenuUtama
         Me.pBarang.Size = New System.Drawing.Size(655, 484)
         Me.pBarang.TabIndex = 4
         '
-        'Button2
+        'btnHapusBarang
         '
-        Me.Button2.Location = New System.Drawing.Point(11, 395)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(203, 42)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Hapus"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnHapusBarang.Location = New System.Drawing.Point(11, 395)
+        Me.btnHapusBarang.Name = "btnHapusBarang"
+        Me.btnHapusBarang.Size = New System.Drawing.Size(203, 42)
+        Me.btnHapusBarang.TabIndex = 4
+        Me.btnHapusBarang.Text = "Hapus"
+        Me.btnHapusBarang.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnUpdateBarang
         '
-        Me.Button1.Location = New System.Drawing.Point(11, 340)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(203, 43)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Update"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnUpdateBarang.Location = New System.Drawing.Point(11, 340)
+        Me.btnUpdateBarang.Name = "btnUpdateBarang"
+        Me.btnUpdateBarang.Size = New System.Drawing.Size(203, 43)
+        Me.btnUpdateBarang.TabIndex = 3
+        Me.btnUpdateBarang.Text = "Update"
+        Me.btnUpdateBarang.UseVisualStyleBackColor = True
         '
         'Tambah
         '
@@ -762,7 +762,7 @@ Partial Class MenuUtama
         Me.Panel3.Controls.Add(Me.User_beliTextBox)
         Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Controls.Add(NamaLabel1)
-        Me.Panel3.Controls.Add(Me.NamaTextBox1)
+        Me.Panel3.Controls.Add(Me.NamaTB)
         Me.Panel3.Controls.Add(Beli_tanggalLabel)
         Me.Panel3.Controls.Add(Me.Beli_tanggalDateTimePicker)
         Me.Panel3.Controls.Add(Beli_jumlahLabel)
@@ -776,6 +776,27 @@ Partial Class MenuUtama
         Me.Panel3.Size = New System.Drawing.Size(331, 226)
         Me.Panel3.TabIndex = 1
         '
+        'BarangTextBox
+        '
+        Me.BarangTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "barang", True))
+        Me.BarangTextBox.Location = New System.Drawing.Point(222, 199)
+        Me.BarangTextBox.Name = "BarangTextBox"
+        Me.BarangTextBox.Size = New System.Drawing.Size(87, 20)
+        Me.BarangTextBox.TabIndex = 19
+        '
+        'PembelianBindingSource1
+        '
+        Me.PembelianBindingSource1.DataMember = "pembelian"
+        Me.PembelianBindingSource1.DataSource = Me.UserDataSet
+        '
+        'User_beliTextBox
+        '
+        Me.User_beliTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "user_beli", True))
+        Me.User_beliTextBox.Location = New System.Drawing.Point(109, 200)
+        Me.User_beliTextBox.Name = "User_beliTextBox"
+        Me.User_beliTextBox.Size = New System.Drawing.Size(97, 20)
+        Me.User_beliTextBox.TabIndex = 18
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -786,19 +807,14 @@ Partial Class MenuUtama
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Form Editing"
         '
-        'NamaTextBox1
+        'NamaTB
         '
-        Me.NamaTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "nama", True))
-        Me.NamaTextBox1.Location = New System.Drawing.Point(109, 110)
-        Me.NamaTextBox1.Name = "NamaTextBox1"
-        Me.NamaTextBox1.ReadOnly = True
-        Me.NamaTextBox1.Size = New System.Drawing.Size(200, 20)
-        Me.NamaTextBox1.TabIndex = 16
-        '
-        'PembelianBindingSource1
-        '
-        Me.PembelianBindingSource1.DataMember = "pembelian"
-        Me.PembelianBindingSource1.DataSource = Me.UserDataSet
+        Me.NamaTB.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "nama", True))
+        Me.NamaTB.Location = New System.Drawing.Point(109, 110)
+        Me.NamaTB.Name = "NamaTB"
+        Me.NamaTB.ReadOnly = True
+        Me.NamaTB.Size = New System.Drawing.Size(200, 20)
+        Me.NamaTB.TabIndex = 16
         '
         'Beli_tanggalDateTimePicker
         '
@@ -927,31 +943,15 @@ Partial Class MenuUtama
         Me.TableAdapterManager.pembelianTableAdapter = Me.PembelianTableAdapter
         Me.TableAdapterManager.UpdateOrder = online_shop.userDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'User_beliTextBox
-        '
-        Me.User_beliTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "user_beli", True))
-        Me.User_beliTextBox.Location = New System.Drawing.Point(109, 200)
-        Me.User_beliTextBox.Name = "User_beliTextBox"
-        Me.User_beliTextBox.Size = New System.Drawing.Size(97, 20)
-        Me.User_beliTextBox.TabIndex = 18
-        '
-        'BarangTextBox
-        '
-        Me.BarangTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "barang", True))
-        Me.BarangTextBox.Location = New System.Drawing.Point(222, 199)
-        Me.BarangTextBox.Name = "BarangTextBox"
-        Me.BarangTextBox.Size = New System.Drawing.Size(87, 20)
-        Me.BarangTextBox.TabIndex = 19
-        '
         'MenuUtama
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(834, 534)
         Me.ControlBox = False
-        Me.Controls.Add(Me.pPembelian)
         Me.Controls.Add(Me.pUser)
         Me.Controls.Add(Me.pBarang)
+        Me.Controls.Add(Me.pPembelian)
         Me.Controls.Add(Me.pheader)
         Me.Controls.Add(Me.pMenu)
         Me.Name = "MenuUtama"
@@ -1013,8 +1013,8 @@ Partial Class MenuUtama
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Tambah As Button
     Friend WithEvents btnKosongkan As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnUpdateBarang As Button
+    Friend WithEvents btnHapusBarang As Button
     Friend WithEvents btnPembelian As Button
     Friend WithEvents pPembelian As Panel
     Friend WithEvents DataGridView3 As DataGridView
@@ -1058,7 +1058,7 @@ Partial Class MenuUtama
     Friend WithEvents UsernameTextBox As TextBox
     Friend WithEvents Beli_idTextBox As TextBox
     Friend WithEvents TableAdapterManager As userDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents NamaTextBox1 As TextBox
+    Friend WithEvents NamaTB As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents BarangTextBox As TextBox
     Friend WithEvents User_beliTextBox As TextBox
