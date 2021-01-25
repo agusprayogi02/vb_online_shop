@@ -110,6 +110,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>userDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="userDataSet.vb">
+      <DependentUpon>userDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">

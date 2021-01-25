@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Net.Mail
+Imports System.Text.RegularExpressions
 Public Class Login
     Private reader As SqlDataReader
     Private adapter As SqlDataAdapter
@@ -28,6 +30,13 @@ Public Class Login
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Try
+            Dim emailvalidator = New MailAddress(txtEmail.Text)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return
+        End Try
+
         Dim ds As New DataSet
         If txtEmail.Text.Trim = "" Or txtPassword.Text = "" Or txtCapt.Text.Trim = "" Then
             MessageBox.Show(Nothing, "Harus Diisi Semua!", "gagal", MessageBoxButtons.OK)
@@ -39,19 +48,34 @@ Public Class Login
             txtCapt.Text = ""
             Return
         End If
-        Call Cekkoneksi()
+        Call cekkoneksi()
         adapter = New SqlDataAdapter("SELECT * FROM [dbo].[login] WHERE username='" + txtEmail.Text + "' AND password='" + txtPassword.Text + "'", conn)
-            adapter.Fill(ds)
-            If ds.Tables(0).Rows.Count > 0 Then
+        adapter.Fill(ds)
+        If ds.Tables(0).Rows.Count > 0 Then
             MenuUtama.Show()
+            MenuUtama.id = ds.Tables(0).Rows(0).Field(Of Integer)("id")
             Hide()
         Else
             MessageBox.Show(Nothing, "Akun Salah!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+        End If
 
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call makeCapt()
+    End Sub
+
+    'Private Sub txtEmail_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEmail.KeyPress
+    '    If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
+
+    Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
+        ' number Only
+        'Dim dig As Regex = New Regex("[^\d]")
+        'txtEmail.Text = dig.Replace(txtEmail.Text, "")
+
+
     End Sub
 End Class

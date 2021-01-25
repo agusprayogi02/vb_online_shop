@@ -25,13 +25,13 @@ Partial Class Login
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnCencel = New System.Windows.Forms.Button()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.lbCapt = New System.Windows.Forms.Label()
         Me.txtCapt = New System.Windows.Forms.TextBox()
         Me.Cache = New System.Windows.Forms.Label()
@@ -50,6 +50,15 @@ Partial Class Login
         '
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
+        '
+        'btnClose
+        '
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.btnClose, "btnClose")
+        Me.btnClose.Image = Global.online_shop.My.Resources.Resources.close
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.TabStop = False
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'txtEmail
         '
@@ -87,15 +96,6 @@ Partial Class Login
         Me.btnLogin.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.UseVisualStyleBackColor = False
-        '
-        'btnClose
-        '
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        resources.ApplyResources(Me.btnClose, "btnClose")
-        Me.btnClose.Image = Global.online_shop.My.Resources.Resources.close
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.TabStop = False
-        Me.btnClose.UseVisualStyleBackColor = True
         '
         'lbCapt
         '

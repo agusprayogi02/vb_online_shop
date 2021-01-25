@@ -31,11 +31,11 @@ Partial Public Class userDataSet
     
     Private tablelogin As loginDataTable
     
-    Private relationFK_pembelian_barang As Global.System.Data.DataRelation
-    
     Private relationFK_barang_login1 As Global.System.Data.DataRelation
     
-    Private relationFK_pembelian_login As Global.System.Data.DataRelation
+    Private relationbarang_pembelian As Global.System.Data.DataRelation
+    
+    Private relationlogin_pembelian As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -248,9 +248,9 @@ Partial Public Class userDataSet
                 Me.tablelogin.InitVars
             End If
         End If
-        Me.relationFK_pembelian_barang = Me.Relations("FK_pembelian_barang")
         Me.relationFK_barang_login1 = Me.Relations("FK_barang_login1")
-        Me.relationFK_pembelian_login = Me.Relations("FK_pembelian_login")
+        Me.relationbarang_pembelian = Me.Relations("barang_pembelian")
+        Me.relationlogin_pembelian = Me.Relations("login_pembelian")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -267,12 +267,12 @@ Partial Public Class userDataSet
         MyBase.Tables.Add(Me.tablepembelian)
         Me.tablelogin = New loginDataTable()
         MyBase.Tables.Add(Me.tablelogin)
-        Me.relationFK_pembelian_barang = New Global.System.Data.DataRelation("FK_pembelian_barang", New Global.System.Data.DataColumn() {Me.tablebarang.kdColumn}, New Global.System.Data.DataColumn() {Me.tablepembelian.barangColumn}, false)
-        Me.Relations.Add(Me.relationFK_pembelian_barang)
         Me.relationFK_barang_login1 = New Global.System.Data.DataRelation("FK_barang_login1", New Global.System.Data.DataColumn() {Me.tablelogin.idColumn}, New Global.System.Data.DataColumn() {Me.tablebarang.idColumn}, false)
         Me.Relations.Add(Me.relationFK_barang_login1)
-        Me.relationFK_pembelian_login = New Global.System.Data.DataRelation("FK_pembelian_login", New Global.System.Data.DataColumn() {Me.tablelogin.idColumn}, New Global.System.Data.DataColumn() {Me.tablepembelian.user_beliColumn}, false)
-        Me.Relations.Add(Me.relationFK_pembelian_login)
+        Me.relationbarang_pembelian = New Global.System.Data.DataRelation("barang_pembelian", New Global.System.Data.DataColumn() {Me.tablebarang.kdColumn}, New Global.System.Data.DataColumn() {Me.tablepembelian.barangColumn}, false)
+        Me.Relations.Add(Me.relationbarang_pembelian)
+        Me.relationlogin_pembelian = New Global.System.Data.DataRelation("login_pembelian", New Global.System.Data.DataColumn() {Me.tablelogin.idColumn}, New Global.System.Data.DataColumn() {Me.tablepembelian.user_beliColumn}, false)
+        Me.Relations.Add(Me.relationlogin_pembelian)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -695,13 +695,19 @@ Partial Public Class userDataSet
         
         Private columnbeli_id As Global.System.Data.DataColumn
         
-        Private columnuser_beli As Global.System.Data.DataColumn
-        
-        Private columnbarang As Global.System.Data.DataColumn
-        
         Private columnbeli_jumlah As Global.System.Data.DataColumn
         
         Private columnbeli_tanggal As Global.System.Data.DataColumn
+        
+        Private columnusername As Global.System.Data.DataColumn
+        
+        Private columnnama As Global.System.Data.DataColumn
+        
+        Private columnharga As Global.System.Data.DataColumn
+        
+        Private columnuser_beli As Global.System.Data.DataColumn
+        
+        Private columnbarang As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -748,22 +754,6 @@ Partial Public Class userDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property user_beliColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnuser_beli
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property barangColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnbarang
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property beli_jumlahColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnbeli_jumlah
@@ -775,6 +765,46 @@ Partial Public Class userDataSet
         Public ReadOnly Property beli_tanggalColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnbeli_tanggal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property usernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnusername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property namaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnama
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property hargaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnharga
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property user_beliColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnuser_beli
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property barangColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbarang
             End Get
         End Property
         
@@ -815,14 +845,14 @@ Partial Public Class userDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddpembelianRow(ByVal beli_id As Integer, ByVal parentloginRowByFK_pembelian_login As loginRow, ByVal parentbarangRowByFK_pembelian_barang As barangRow, ByVal beli_jumlah As Integer, ByVal beli_tanggal As Date) As pembelianRow
+        Public Overloads Function AddpembelianRow(ByVal beli_id As Integer, ByVal beli_jumlah As Integer, ByVal beli_tanggal As Date, ByVal username As String, ByVal nama As String, ByVal harga As Integer, ByVal parentloginRowBylogin_pembelian As loginRow, ByVal parentbarangRowBybarang_pembelian As barangRow) As pembelianRow
             Dim rowpembelianRow As pembelianRow = CType(Me.NewRow,pembelianRow)
-            Dim columnValuesArray() As Object = New Object() {beli_id, Nothing, Nothing, beli_jumlah, beli_tanggal}
-            If (Not (parentloginRowByFK_pembelian_login) Is Nothing) Then
-                columnValuesArray(1) = parentloginRowByFK_pembelian_login(0)
+            Dim columnValuesArray() As Object = New Object() {beli_id, beli_jumlah, beli_tanggal, username, nama, harga, Nothing, Nothing}
+            If (Not (parentloginRowBylogin_pembelian) Is Nothing) Then
+                columnValuesArray(6) = parentloginRowBylogin_pembelian(0)
             End If
-            If (Not (parentbarangRowByFK_pembelian_barang) Is Nothing) Then
-                columnValuesArray(2) = parentbarangRowByFK_pembelian_barang(0)
+            If (Not (parentbarangRowBybarang_pembelian) Is Nothing) Then
+                columnValuesArray(7) = parentbarangRowBybarang_pembelian(0)
             End If
             rowpembelianRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowpembelianRow)
@@ -853,10 +883,13 @@ Partial Public Class userDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnbeli_id = MyBase.Columns("beli_id")
-            Me.columnuser_beli = MyBase.Columns("user_beli")
-            Me.columnbarang = MyBase.Columns("barang")
             Me.columnbeli_jumlah = MyBase.Columns("beli_jumlah")
             Me.columnbeli_tanggal = MyBase.Columns("beli_tanggal")
+            Me.columnusername = MyBase.Columns("username")
+            Me.columnnama = MyBase.Columns("nama")
+            Me.columnharga = MyBase.Columns("harga")
+            Me.columnuser_beli = MyBase.Columns("user_beli")
+            Me.columnbarang = MyBase.Columns("barang")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -864,17 +897,28 @@ Partial Public Class userDataSet
         Private Sub InitClass()
             Me.columnbeli_id = New Global.System.Data.DataColumn("beli_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbeli_id)
-            Me.columnuser_beli = New Global.System.Data.DataColumn("user_beli", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnuser_beli)
-            Me.columnbarang = New Global.System.Data.DataColumn("barang", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnbarang)
             Me.columnbeli_jumlah = New Global.System.Data.DataColumn("beli_jumlah", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbeli_jumlah)
             Me.columnbeli_tanggal = New Global.System.Data.DataColumn("beli_tanggal", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbeli_tanggal)
+            Me.columnusername = New Global.System.Data.DataColumn("username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnusername)
+            Me.columnnama = New Global.System.Data.DataColumn("nama", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnama)
+            Me.columnharga = New Global.System.Data.DataColumn("harga", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnharga)
+            Me.columnuser_beli = New Global.System.Data.DataColumn("user_beli", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnuser_beli)
+            Me.columnbarang = New Global.System.Data.DataColumn("barang", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnbarang)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnbeli_id}, true))
             Me.columnbeli_id.AllowDBNull = false
             Me.columnbeli_id.Unique = true
+            Me.columnusername.AllowDBNull = false
+            Me.columnusername.MaxLength = 50
+            Me.columnnama.AllowDBNull = false
+            Me.columnnama.MaxLength = 100
+            Me.columnharga.AllowDBNull = false
             Me.columnuser_beli.AllowDBNull = false
         End Sub
         
@@ -1398,10 +1442,10 @@ Partial Public Class userDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function GetpembelianRows() As pembelianRow()
-            If (Me.Table.ChildRelations("FK_pembelian_barang") Is Nothing) Then
+            If (Me.Table.ChildRelations("barang_pembelian") Is Nothing) Then
                 Return New pembelianRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_pembelian_barang")),pembelianRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("barang_pembelian")),pembelianRow())
             End If
         End Function
     End Class
@@ -1429,32 +1473,6 @@ Partial Public Class userDataSet
             End Get
             Set
                 Me(Me.tablepembelian.beli_idColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property user_beli() As Integer
-            Get
-                Return CType(Me(Me.tablepembelian.user_beliColumn),Integer)
-            End Get
-            Set
-                Me(Me.tablepembelian.user_beliColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property barang() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablepembelian.barangColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'barang' in table 'pembelian' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepembelian.barangColumn) = value
             End Set
         End Property
         
@@ -1490,12 +1508,71 @@ Partial Public Class userDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property barangRow() As barangRow
+        Public Property username() As String
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_pembelian_barang")),barangRow)
+                Return CType(Me(Me.tablepembelian.usernameColumn),String)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_pembelian_barang"))
+                Me(Me.tablepembelian.usernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property nama() As String
+            Get
+                Return CType(Me(Me.tablepembelian.namaColumn),String)
+            End Get
+            Set
+                Me(Me.tablepembelian.namaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property harga() As Integer
+            Get
+                Return CType(Me(Me.tablepembelian.hargaColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablepembelian.hargaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property user_beli() As Integer
+            Get
+                Return CType(Me(Me.tablepembelian.user_beliColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablepembelian.user_beliColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property barang() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablepembelian.barangColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'barang' in table 'pembelian' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepembelian.barangColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property barangRow() As barangRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("barang_pembelian")),barangRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("barang_pembelian"))
             End Set
         End Property
         
@@ -1503,24 +1580,12 @@ Partial Public Class userDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property loginRow() As loginRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_pembelian_login")),loginRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("login_pembelian")),loginRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_pembelian_login"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("login_pembelian"))
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsbarangNull() As Boolean
-            Return Me.IsNull(Me.tablepembelian.barangColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetbarangNull()
-            Me(Me.tablepembelian.barangColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -1544,6 +1609,18 @@ Partial Public Class userDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setbeli_tanggalNull()
             Me(Me.tablepembelian.beli_tanggalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsbarangNull() As Boolean
+            Return Me.IsNull(Me.tablepembelian.barangColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetbarangNull()
+            Me(Me.tablepembelian.barangColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1635,10 +1712,10 @@ Partial Public Class userDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function GetpembelianRows() As pembelianRow()
-            If (Me.Table.ChildRelations("FK_pembelian_login") Is Nothing) Then
+            If (Me.Table.ChildRelations("login_pembelian") Is Nothing) Then
                 Return New pembelianRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_pembelian_login")),pembelianRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("login_pembelian")),pembelianRow())
             End If
         End Function
     End Class
@@ -1899,11 +1976,36 @@ Namespace userDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        kd, id, nama, harga, stok"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            barang"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "DELETE FROM barang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (kd = @kd)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@kd", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "kd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "INSERT INTO barang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (id, nama, harga, stok)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES     "& _ 
+                "   (@id,@nama,@harga,@stok); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT kd, id, nama, harga, stok FROM barang WHER"& _ 
+                "E (kd = SCOPE_IDENTITY())"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nama", Global.System.Data.SqlDbType.NVarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "nama", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@stok", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "UPDATE       barang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                nama = @nama, harga = @harga, stok = @sto"& _ 
+                "k, id = @id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE       kd = @kd"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nama", Global.System.Data.SqlDbType.NVarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "nama", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@stok", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "stok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@kd", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "kd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1928,6 +2030,90 @@ Namespace userDataSetTableAdapters
             Dim dataTable As userDataSet.barangDataTable = New userDataSet.barangDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function DeleteQuery(ByVal kd As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            command.Parameters(0).Value = CType(kd,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertQuery(ByVal id As Integer, ByVal nama As String, ByVal harga As Integer, ByVal stok As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            command.Parameters(0).Value = CType(id,Integer)
+            If (nama Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("nama")
+            Else
+                command.Parameters(1).Value = CType(nama,String)
+            End If
+            command.Parameters(2).Value = CType(harga,Integer)
+            command.Parameters(3).Value = CType(stok,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQuery(ByVal nama As String, ByVal harga As Integer, ByVal stok As Integer, ByVal id As Integer, ByVal kd As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            If (nama Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("nama")
+            Else
+                command.Parameters(0).Value = CType(nama,String)
+            End If
+            command.Parameters(1).Value = CType(harga,Integer)
+            command.Parameters(2).Value = CType(stok,Integer)
+            command.Parameters(3).Value = CType(id,Integer)
+            command.Parameters(4).Value = CType(kd,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
     
@@ -2059,10 +2245,13 @@ Namespace userDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "pembelian"
             tableMapping.ColumnMappings.Add("beli_id", "beli_id")
-            tableMapping.ColumnMappings.Add("user_beli", "user_beli")
-            tableMapping.ColumnMappings.Add("barang", "barang")
             tableMapping.ColumnMappings.Add("beli_jumlah", "beli_jumlah")
             tableMapping.ColumnMappings.Add("beli_tanggal", "beli_tanggal")
+            tableMapping.ColumnMappings.Add("username", "username")
+            tableMapping.ColumnMappings.Add("nama", "nama")
+            tableMapping.ColumnMappings.Add("harga", "harga")
+            tableMapping.ColumnMappings.Add("user_beli", "user_beli")
+            tableMapping.ColumnMappings.Add("barang", "barang")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -2128,11 +2317,26 @@ Namespace userDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT beli_id, user_beli, barang, beli_jumlah, beli_tanggal FROM dbo.pembelian"
+            Me._commandCollection(0).CommandText = "SELECT        pembelian.beli_id, pembelian.beli_jumlah, pembelian.beli_tanggal, l"& _ 
+                "ogin.username, barang.nama, barang.harga, pembelian.user_beli, pembelian.barang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            pembelian INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         login ON pembeli"& _ 
+                "an.user_beli = login.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         barang ON pembelian"& _ 
+                ".barang = barang.kd AND login.id = barang.id"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "UPDATE       pembelian"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                beli_id = @beli_id, user_beli = @user_"& _ 
+                "beli, barang = @barang, beli_jumlah = @beli_jumlah, beli_tanggal = @beli_tanggal"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (beli_id = @beli_id); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT beli_id, user_beli, barang, beli_j"& _ 
+                "umlah, beli_tanggal FROM pembelian"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@beli_id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "beli_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@user_beli", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "user_beli", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@barang", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@beli_jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "beli_jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@beli_tanggal", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "beli_tanggal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2333,6 +2537,45 @@ Namespace userDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update(ByVal user_beli As Integer, ByVal barang As Global.System.Nullable(Of Integer), ByVal beli_jumlah As Global.System.Nullable(Of Integer), ByVal beli_tanggal As Global.System.Nullable(Of Date), ByVal Original_beli_id As Integer, ByVal Original_user_beli As Integer, ByVal Original_barang As Global.System.Nullable(Of Integer), ByVal Original_beli_jumlah As Global.System.Nullable(Of Integer), ByVal Original_beli_tanggal As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_beli_id, user_beli, barang, beli_jumlah, beli_tanggal, Original_beli_id, Original_user_beli, Original_barang, Original_beli_jumlah, Original_beli_tanggal)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQuery(ByVal beli_id As Integer, ByVal user_beli As Integer, ByVal barang As Global.System.Nullable(Of Integer), ByVal beli_jumlah As Global.System.Nullable(Of Integer), ByVal beli_tanggal As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            command.Parameters(0).Value = CType(beli_id,Integer)
+            command.Parameters(1).Value = CType(user_beli,Integer)
+            If (barang.HasValue = true) Then
+                command.Parameters(2).Value = CType(barang.Value,Integer)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (beli_jumlah.HasValue = true) Then
+                command.Parameters(3).Value = CType(beli_jumlah.Value,Integer)
+            Else
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (beli_tanggal Is Nothing) Then
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(4).Value = CType(beli_tanggal,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
     
