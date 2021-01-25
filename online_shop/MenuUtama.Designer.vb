@@ -23,16 +23,16 @@ Partial Class MenuUtama
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Beli_idLabel As System.Windows.Forms.Label
-        Dim Beli_jumlahLabel As System.Windows.Forms.Label
-        Dim Beli_tanggalLabel As System.Windows.Forms.Label
-        Dim UsernameLabel As System.Windows.Forms.Label
-        Dim NamaLabel1 As System.Windows.Forms.Label
         Dim StokLabel As System.Windows.Forms.Label
         Dim KdLabel As System.Windows.Forms.Label
         Dim NamaLabel As System.Windows.Forms.Label
         Dim HargaLabel As System.Windows.Forms.Label
         Dim IdLabel As System.Windows.Forms.Label
+        Dim Beli_idLabel As System.Windows.Forms.Label
+        Dim UsernameLabel As System.Windows.Forms.Label
+        Dim Beli_jumlahLabel As System.Windows.Forms.Label
+        Dim Beli_tanggalLabel As System.Windows.Forms.Label
+        Dim NamaLabel1 As System.Windows.Forms.Label
         Me.pMenu = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -44,6 +44,13 @@ Partial Class MenuUtama
         Me.btnClose = New System.Windows.Forms.Button()
         Me.pUser = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsernameDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.UserDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.UserDataSet = New online_shop.userDataSet()
         Me.btnCencel = New System.Windows.Forms.Button()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -64,42 +71,32 @@ Partial Class MenuUtama
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Tambah = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.IdTextBox = New System.Windows.Forms.TextBox()
+        Me.HargaTextBox = New System.Windows.Forms.TextBox()
+        Me.NamaTextBox = New System.Windows.Forms.TextBox()
+        Me.KdTextBox = New System.Windows.Forms.TextBox()
+        Me.StokTextBox = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnKosongkan = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.pPembelian = New System.Windows.Forms.Panel()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Beli_idTextBox = New System.Windows.Forms.TextBox()
-        Me.Beli_jumlahTextBox = New System.Windows.Forms.TextBox()
-        Me.Beli_tanggalDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.UsernameTextBox = New System.Windows.Forms.TextBox()
-        Me.NamaComboBox = New System.Windows.Forms.ComboBox()
-        Me.KdTextBox = New System.Windows.Forms.TextBox()
-        Me.StokTextBox = New System.Windows.Forms.TextBox()
-        Me.NamaTextBox = New System.Windows.Forms.TextBox()
-        Me.HargaTextBox = New System.Windows.Forms.TextBox()
-        Me.IdTextBox = New System.Windows.Forms.TextBox()
-        Me.UserDataSet = New online_shop.userDataSet()
-        Me.UserDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BarangBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BarangTableAdapter = New online_shop.userDataSetTableAdapters.barangTableAdapter()
         Me.KdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NamaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HargaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PembelianBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PembelianTableAdapter = New online_shop.userDataSetTableAdapters.pembelianTableAdapter()
-        Me.LoginBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
-        Me.IdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsernameDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BarangBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.pPembelian = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.NamaTextBox1 = New System.Windows.Forms.TextBox()
+        Me.PembelianBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Beli_tanggalDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.Beli_jumlahTextBox = New System.Windows.Forms.TextBox()
+        Me.UsernameTextBox = New System.Windows.Forms.TextBox()
+        Me.Beli_idTextBox = New System.Windows.Forms.TextBox()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.BeliidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NamaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -108,34 +105,132 @@ Partial Class MenuUtama
         Me.BarangDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BelitanggalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BelijumlahDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Beli_idLabel = New System.Windows.Forms.Label()
-        Beli_jumlahLabel = New System.Windows.Forms.Label()
-        Beli_tanggalLabel = New System.Windows.Forms.Label()
-        UsernameLabel = New System.Windows.Forms.Label()
-        NamaLabel1 = New System.Windows.Forms.Label()
+        Me.PembelianBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BarangTableAdapter = New online_shop.userDataSetTableAdapters.barangTableAdapter()
+        Me.PembelianTableAdapter = New online_shop.userDataSetTableAdapters.pembelianTableAdapter()
+        Me.LoginTableAdapter = New online_shop.userDataSetTableAdapters.loginTableAdapter()
+        Me.TableAdapterManager = New online_shop.userDataSetTableAdapters.TableAdapterManager()
+        Me.User_beliTextBox = New System.Windows.Forms.TextBox()
+        Me.BarangTextBox = New System.Windows.Forms.TextBox()
         StokLabel = New System.Windows.Forms.Label()
         KdLabel = New System.Windows.Forms.Label()
         NamaLabel = New System.Windows.Forms.Label()
         HargaLabel = New System.Windows.Forms.Label()
         IdLabel = New System.Windows.Forms.Label()
+        Beli_idLabel = New System.Windows.Forms.Label()
+        UsernameLabel = New System.Windows.Forms.Label()
+        Beli_jumlahLabel = New System.Windows.Forms.Label()
+        Beli_tanggalLabel = New System.Windows.Forms.Label()
+        NamaLabel1 = New System.Windows.Forms.Label()
         Me.pMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.pheader.SuspendLayout()
         Me.pUser.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.pBarang.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BarangBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pPembelian.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.PembelianBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UserDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BarangBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PembelianBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'StokLabel
+        '
+        StokLabel.AutoSize = True
+        StokLabel.Location = New System.Drawing.Point(26, 136)
+        StokLabel.Name = "StokLabel"
+        StokLabel.Size = New System.Drawing.Size(30, 13)
+        StokLabel.TabIndex = 14
+        StokLabel.Text = "stok:"
+        '
+        'KdLabel
+        '
+        KdLabel.AutoSize = True
+        KdLabel.Location = New System.Drawing.Point(34, 52)
+        KdLabel.Name = "KdLabel"
+        KdLabel.Size = New System.Drawing.Size(22, 13)
+        KdLabel.TabIndex = 15
+        KdLabel.Text = "kd:"
+        '
+        'NamaLabel
+        '
+        NamaLabel.AutoSize = True
+        NamaLabel.Location = New System.Drawing.Point(20, 80)
+        NamaLabel.Name = "NamaLabel"
+        NamaLabel.Size = New System.Drawing.Size(36, 13)
+        NamaLabel.TabIndex = 16
+        NamaLabel.Text = "nama:"
+        '
+        'HargaLabel
+        '
+        HargaLabel.AutoSize = True
+        HargaLabel.Location = New System.Drawing.Point(19, 108)
+        HargaLabel.Name = "HargaLabel"
+        HargaLabel.Size = New System.Drawing.Size(37, 13)
+        HargaLabel.TabIndex = 17
+        HargaLabel.Text = "harga:"
+        '
+        'IdLabel
+        '
+        IdLabel.AutoSize = True
+        IdLabel.Location = New System.Drawing.Point(38, 164)
+        IdLabel.Name = "IdLabel"
+        IdLabel.Size = New System.Drawing.Size(18, 13)
+        IdLabel.TabIndex = 18
+        IdLabel.Text = "id:"
+        '
+        'Beli_idLabel
+        '
+        Beli_idLabel.AutoSize = True
+        Beli_idLabel.Location = New System.Drawing.Point(41, 61)
+        Beli_idLabel.Name = "Beli_idLabel"
+        Beli_idLabel.Size = New System.Drawing.Size(55, 13)
+        Beli_idLabel.TabIndex = 10
+        Beli_idLabel.Text = "Kode Beli:"
+        '
+        'UsernameLabel
+        '
+        UsernameLabel.AutoSize = True
+        UsernameLabel.Location = New System.Drawing.Point(15, 90)
+        UsernameLabel.Name = "UsernameLabel"
+        UsernameLabel.Size = New System.Drawing.Size(81, 13)
+        UsernameLabel.TabIndex = 11
+        UsernameLabel.Text = "Nama Pembeli :"
+        '
+        'Beli_jumlahLabel
+        '
+        Beli_jumlahLabel.AutoSize = True
+        Beli_jumlahLabel.Location = New System.Drawing.Point(30, 145)
+        Beli_jumlahLabel.Name = "Beli_jumlahLabel"
+        Beli_jumlahLabel.Size = New System.Drawing.Size(66, 13)
+        Beli_jumlahLabel.TabIndex = 13
+        Beli_jumlahLabel.Text = "Jumlah Beli :"
+        '
+        'Beli_tanggalLabel
+        '
+        Beli_tanggalLabel.AutoSize = True
+        Beli_tanggalLabel.Location = New System.Drawing.Point(27, 173)
+        Beli_tanggalLabel.Name = "Beli_tanggalLabel"
+        Beli_tanggalLabel.Size = New System.Drawing.Size(69, 13)
+        Beli_tanggalLabel.TabIndex = 14
+        Beli_tanggalLabel.Text = "Tanggal Beli:"
+        '
+        'NamaLabel1
+        '
+        NamaLabel1.AutoSize = True
+        NamaLabel1.Location = New System.Drawing.Point(18, 118)
+        NamaLabel1.Name = "NamaLabel1"
+        NamaLabel1.Size = New System.Drawing.Size(78, 13)
+        NamaLabel1.TabIndex = 15
+        NamaLabel1.Text = "Nama Barang :"
         '
         'pMenu
         '
@@ -268,6 +363,49 @@ Partial Class MenuUtama
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(634, 246)
         Me.DataGridView1.TabIndex = 3
+        '
+        'IdDataGridViewTextBoxColumn1
+        '
+        Me.IdDataGridViewTextBoxColumn1.DataPropertyName = "id"
+        Me.IdDataGridViewTextBoxColumn1.HeaderText = "id"
+        Me.IdDataGridViewTextBoxColumn1.Name = "IdDataGridViewTextBoxColumn1"
+        Me.IdDataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'UsernameDataGridViewTextBoxColumn1
+        '
+        Me.UsernameDataGridViewTextBoxColumn1.DataPropertyName = "username"
+        Me.UsernameDataGridViewTextBoxColumn1.HeaderText = "username"
+        Me.UsernameDataGridViewTextBoxColumn1.Name = "UsernameDataGridViewTextBoxColumn1"
+        Me.UsernameDataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'PasswordDataGridViewTextBoxColumn
+        '
+        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
+        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
+        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
+        Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RoleDataGridViewTextBoxColumn
+        '
+        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "role"
+        Me.RoleDataGridViewTextBoxColumn.HeaderText = "role"
+        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
+        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LoginBindingSource
+        '
+        Me.LoginBindingSource.DataMember = "login"
+        Me.LoginBindingSource.DataSource = Me.UserDataSetBindingSource
+        '
+        'UserDataSetBindingSource
+        '
+        Me.UserDataSetBindingSource.DataSource = Me.UserDataSet
+        Me.UserDataSetBindingSource.Position = 0
+        '
+        'UserDataSet
+        '
+        Me.UserDataSet.DataSetName = "userDataSet"
+        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnCencel
         '
@@ -484,6 +622,42 @@ Partial Class MenuUtama
         Me.Panel2.Size = New System.Drawing.Size(258, 227)
         Me.Panel2.TabIndex = 1
         '
+        'IdTextBox
+        '
+        Me.IdTextBox.Location = New System.Drawing.Point(70, 161)
+        Me.IdTextBox.Name = "IdTextBox"
+        Me.IdTextBox.Size = New System.Drawing.Size(172, 20)
+        Me.IdTextBox.TabIndex = 19
+        '
+        'HargaTextBox
+        '
+        Me.HargaTextBox.Location = New System.Drawing.Point(70, 105)
+        Me.HargaTextBox.Name = "HargaTextBox"
+        Me.HargaTextBox.Size = New System.Drawing.Size(172, 20)
+        Me.HargaTextBox.TabIndex = 18
+        '
+        'NamaTextBox
+        '
+        Me.NamaTextBox.Location = New System.Drawing.Point(70, 77)
+        Me.NamaTextBox.Name = "NamaTextBox"
+        Me.NamaTextBox.Size = New System.Drawing.Size(172, 20)
+        Me.NamaTextBox.TabIndex = 17
+        '
+        'KdTextBox
+        '
+        Me.KdTextBox.Location = New System.Drawing.Point(70, 49)
+        Me.KdTextBox.Name = "KdTextBox"
+        Me.KdTextBox.ReadOnly = True
+        Me.KdTextBox.Size = New System.Drawing.Size(172, 20)
+        Me.KdTextBox.TabIndex = 16
+        '
+        'StokTextBox
+        '
+        Me.StokTextBox.Location = New System.Drawing.Point(70, 133)
+        Me.StokTextBox.Name = "StokTextBox"
+        Me.StokTextBox.Size = New System.Drawing.Size(173, 20)
+        Me.StokTextBox.TabIndex = 15
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -514,6 +688,42 @@ Partial Class MenuUtama
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(634, 228)
         Me.DataGridView2.TabIndex = 0
+        '
+        'KdDataGridViewTextBoxColumn
+        '
+        Me.KdDataGridViewTextBoxColumn.DataPropertyName = "kd"
+        Me.KdDataGridViewTextBoxColumn.HeaderText = "kd"
+        Me.KdDataGridViewTextBoxColumn.Name = "KdDataGridViewTextBoxColumn"
+        Me.KdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NamaDataGridViewTextBoxColumn
+        '
+        Me.NamaDataGridViewTextBoxColumn.DataPropertyName = "nama"
+        Me.NamaDataGridViewTextBoxColumn.HeaderText = "nama"
+        Me.NamaDataGridViewTextBoxColumn.Name = "NamaDataGridViewTextBoxColumn"
+        '
+        'HargaDataGridViewTextBoxColumn
+        '
+        Me.HargaDataGridViewTextBoxColumn.DataPropertyName = "harga"
+        Me.HargaDataGridViewTextBoxColumn.HeaderText = "harga"
+        Me.HargaDataGridViewTextBoxColumn.Name = "HargaDataGridViewTextBoxColumn"
+        '
+        'StokDataGridViewTextBoxColumn
+        '
+        Me.StokDataGridViewTextBoxColumn.DataPropertyName = "stok"
+        Me.StokDataGridViewTextBoxColumn.HeaderText = "stok"
+        Me.StokDataGridViewTextBoxColumn.Name = "StokDataGridViewTextBoxColumn"
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        '
+        'BarangBindingSource
+        '
+        Me.BarangBindingSource.DataMember = "barang"
+        Me.BarangBindingSource.DataSource = Me.UserDataSetBindingSource
         '
         'pPembelian
         '
@@ -548,30 +758,81 @@ Partial Class MenuUtama
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel3.Controls.Add(Me.BarangTextBox)
+        Me.Panel3.Controls.Add(Me.User_beliTextBox)
+        Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Controls.Add(NamaLabel1)
-        Me.Panel3.Controls.Add(Me.NamaComboBox)
-        Me.Panel3.Controls.Add(UsernameLabel)
-        Me.Panel3.Controls.Add(Me.UsernameTextBox)
+        Me.Panel3.Controls.Add(Me.NamaTextBox1)
         Me.Panel3.Controls.Add(Beli_tanggalLabel)
         Me.Panel3.Controls.Add(Me.Beli_tanggalDateTimePicker)
         Me.Panel3.Controls.Add(Beli_jumlahLabel)
         Me.Panel3.Controls.Add(Me.Beli_jumlahTextBox)
+        Me.Panel3.Controls.Add(UsernameLabel)
+        Me.Panel3.Controls.Add(Me.UsernameTextBox)
         Me.Panel3.Controls.Add(Beli_idLabel)
         Me.Panel3.Controls.Add(Me.Beli_idTextBox)
-        Me.Panel3.Controls.Add(Me.Button3)
-        Me.Panel3.Location = New System.Drawing.Point(321, 248)
+        Me.Panel3.Location = New System.Drawing.Point(312, 248)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(322, 226)
+        Me.Panel3.Size = New System.Drawing.Size(331, 226)
         Me.Panel3.TabIndex = 1
         '
-        'Button3
+        'Label7
         '
-        Me.Button3.Location = New System.Drawing.Point(121, 185)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(185, 33)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Ingin Mengubah?"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(14, 12)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(130, 24)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Form Editing"
+        '
+        'NamaTextBox1
+        '
+        Me.NamaTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "nama", True))
+        Me.NamaTextBox1.Location = New System.Drawing.Point(109, 110)
+        Me.NamaTextBox1.Name = "NamaTextBox1"
+        Me.NamaTextBox1.ReadOnly = True
+        Me.NamaTextBox1.Size = New System.Drawing.Size(200, 20)
+        Me.NamaTextBox1.TabIndex = 16
+        '
+        'PembelianBindingSource1
+        '
+        Me.PembelianBindingSource1.DataMember = "pembelian"
+        Me.PembelianBindingSource1.DataSource = Me.UserDataSet
+        '
+        'Beli_tanggalDateTimePicker
+        '
+        Me.Beli_tanggalDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.PembelianBindingSource1, "beli_tanggal", True))
+        Me.Beli_tanggalDateTimePicker.Location = New System.Drawing.Point(109, 168)
+        Me.Beli_tanggalDateTimePicker.Name = "Beli_tanggalDateTimePicker"
+        Me.Beli_tanggalDateTimePicker.Size = New System.Drawing.Size(200, 20)
+        Me.Beli_tanggalDateTimePicker.TabIndex = 15
+        '
+        'Beli_jumlahTextBox
+        '
+        Me.Beli_jumlahTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "beli_jumlah", True))
+        Me.Beli_jumlahTextBox.Location = New System.Drawing.Point(109, 140)
+        Me.Beli_jumlahTextBox.Name = "Beli_jumlahTextBox"
+        Me.Beli_jumlahTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.Beli_jumlahTextBox.TabIndex = 14
+        '
+        'UsernameTextBox
+        '
+        Me.UsernameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "username", True))
+        Me.UsernameTextBox.Location = New System.Drawing.Point(109, 83)
+        Me.UsernameTextBox.Name = "UsernameTextBox"
+        Me.UsernameTextBox.ReadOnly = True
+        Me.UsernameTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.UsernameTextBox.TabIndex = 12
+        '
+        'Beli_idTextBox
+        '
+        Me.Beli_idTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "beli_id", True))
+        Me.Beli_idTextBox.Location = New System.Drawing.Point(109, 55)
+        Me.Beli_idTextBox.Name = "Beli_idTextBox"
+        Me.Beli_idTextBox.ReadOnly = True
+        Me.Beli_idTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.Beli_idTextBox.TabIndex = 11
         '
         'DataGridView3
         '
@@ -585,266 +846,6 @@ Partial Class MenuUtama
         Me.DataGridView3.ReadOnly = True
         Me.DataGridView3.Size = New System.Drawing.Size(634, 231)
         Me.DataGridView3.TabIndex = 0
-        '
-        'Beli_idLabel
-        '
-        Beli_idLabel.AutoSize = True
-        Beli_idLabel.Location = New System.Drawing.Point(44, 46)
-        Beli_idLabel.Name = "Beli_idLabel"
-        Beli_idLabel.Size = New System.Drawing.Size(37, 13)
-        Beli_idLabel.TabIndex = 10
-        Beli_idLabel.Text = "beli id:"
-        '
-        'Beli_idTextBox
-        '
-        Me.Beli_idTextBox.Location = New System.Drawing.Point(100, 43)
-        Me.Beli_idTextBox.Name = "Beli_idTextBox"
-        Me.Beli_idTextBox.ReadOnly = True
-        Me.Beli_idTextBox.Size = New System.Drawing.Size(200, 20)
-        Me.Beli_idTextBox.TabIndex = 11
-        '
-        'Beli_jumlahLabel
-        '
-        Beli_jumlahLabel.AutoSize = True
-        Beli_jumlahLabel.Location = New System.Drawing.Point(22, 127)
-        Beli_jumlahLabel.Name = "Beli_jumlahLabel"
-        Beli_jumlahLabel.Size = New System.Drawing.Size(59, 13)
-        Beli_jumlahLabel.TabIndex = 11
-        Beli_jumlahLabel.Text = "beli jumlah:"
-        '
-        'Beli_jumlahTextBox
-        '
-        Me.Beli_jumlahTextBox.Location = New System.Drawing.Point(100, 122)
-        Me.Beli_jumlahTextBox.Name = "Beli_jumlahTextBox"
-        Me.Beli_jumlahTextBox.Size = New System.Drawing.Size(200, 20)
-        Me.Beli_jumlahTextBox.TabIndex = 12
-        '
-        'Beli_tanggalLabel
-        '
-        Beli_tanggalLabel.AutoSize = True
-        Beli_tanggalLabel.Location = New System.Drawing.Point(17, 154)
-        Beli_tanggalLabel.Name = "Beli_tanggalLabel"
-        Beli_tanggalLabel.Size = New System.Drawing.Size(64, 13)
-        Beli_tanggalLabel.TabIndex = 12
-        Beli_tanggalLabel.Text = "beli tanggal:"
-        '
-        'Beli_tanggalDateTimePicker
-        '
-        Me.Beli_tanggalDateTimePicker.Location = New System.Drawing.Point(100, 148)
-        Me.Beli_tanggalDateTimePicker.Name = "Beli_tanggalDateTimePicker"
-        Me.Beli_tanggalDateTimePicker.Size = New System.Drawing.Size(200, 20)
-        Me.Beli_tanggalDateTimePicker.TabIndex = 13
-        '
-        'UsernameLabel
-        '
-        UsernameLabel.AutoSize = True
-        UsernameLabel.Location = New System.Drawing.Point(25, 73)
-        UsernameLabel.Name = "UsernameLabel"
-        UsernameLabel.Size = New System.Drawing.Size(56, 13)
-        UsernameLabel.TabIndex = 14
-        UsernameLabel.Text = "username:"
-        '
-        'UsernameTextBox
-        '
-        Me.UsernameTextBox.Location = New System.Drawing.Point(100, 69)
-        Me.UsernameTextBox.Name = "UsernameTextBox"
-        Me.UsernameTextBox.ReadOnly = True
-        Me.UsernameTextBox.Size = New System.Drawing.Size(200, 20)
-        Me.UsernameTextBox.TabIndex = 15
-        '
-        'NamaLabel1
-        '
-        NamaLabel1.AutoSize = True
-        NamaLabel1.Location = New System.Drawing.Point(42, 100)
-        NamaLabel1.Name = "NamaLabel1"
-        NamaLabel1.Size = New System.Drawing.Size(36, 13)
-        NamaLabel1.TabIndex = 15
-        NamaLabel1.Text = "nama:"
-        '
-        'NamaComboBox
-        '
-        Me.NamaComboBox.FormattingEnabled = True
-        Me.NamaComboBox.Location = New System.Drawing.Point(100, 95)
-        Me.NamaComboBox.Name = "NamaComboBox"
-        Me.NamaComboBox.Size = New System.Drawing.Size(200, 21)
-        Me.NamaComboBox.TabIndex = 16
-        '
-        'StokLabel
-        '
-        StokLabel.AutoSize = True
-        StokLabel.Location = New System.Drawing.Point(26, 136)
-        StokLabel.Name = "StokLabel"
-        StokLabel.Size = New System.Drawing.Size(30, 13)
-        StokLabel.TabIndex = 14
-        StokLabel.Text = "stok:"
-        '
-        'KdLabel
-        '
-        KdLabel.AutoSize = True
-        KdLabel.Location = New System.Drawing.Point(34, 52)
-        KdLabel.Name = "KdLabel"
-        KdLabel.Size = New System.Drawing.Size(22, 13)
-        KdLabel.TabIndex = 15
-        KdLabel.Text = "kd:"
-        '
-        'KdTextBox
-        '
-        Me.KdTextBox.Location = New System.Drawing.Point(70, 49)
-        Me.KdTextBox.Name = "KdTextBox"
-        Me.KdTextBox.ReadOnly = True
-        Me.KdTextBox.Size = New System.Drawing.Size(172, 20)
-        Me.KdTextBox.TabIndex = 16
-        '
-        'StokTextBox
-        '
-        Me.StokTextBox.Location = New System.Drawing.Point(70, 133)
-        Me.StokTextBox.Name = "StokTextBox"
-        Me.StokTextBox.Size = New System.Drawing.Size(173, 20)
-        Me.StokTextBox.TabIndex = 15
-        '
-        'NamaLabel
-        '
-        NamaLabel.AutoSize = True
-        NamaLabel.Location = New System.Drawing.Point(20, 80)
-        NamaLabel.Name = "NamaLabel"
-        NamaLabel.Size = New System.Drawing.Size(36, 13)
-        NamaLabel.TabIndex = 16
-        NamaLabel.Text = "nama:"
-        '
-        'NamaTextBox
-        '
-        Me.NamaTextBox.Location = New System.Drawing.Point(70, 77)
-        Me.NamaTextBox.Name = "NamaTextBox"
-        Me.NamaTextBox.Size = New System.Drawing.Size(172, 20)
-        Me.NamaTextBox.TabIndex = 17
-        '
-        'HargaLabel
-        '
-        HargaLabel.AutoSize = True
-        HargaLabel.Location = New System.Drawing.Point(19, 108)
-        HargaLabel.Name = "HargaLabel"
-        HargaLabel.Size = New System.Drawing.Size(37, 13)
-        HargaLabel.TabIndex = 17
-        HargaLabel.Text = "harga:"
-        '
-        'HargaTextBox
-        '
-        Me.HargaTextBox.Location = New System.Drawing.Point(70, 105)
-        Me.HargaTextBox.Name = "HargaTextBox"
-        Me.HargaTextBox.Size = New System.Drawing.Size(172, 20)
-        Me.HargaTextBox.TabIndex = 18
-        '
-        'IdLabel
-        '
-        IdLabel.AutoSize = True
-        IdLabel.Location = New System.Drawing.Point(38, 164)
-        IdLabel.Name = "IdLabel"
-        IdLabel.Size = New System.Drawing.Size(18, 13)
-        IdLabel.TabIndex = 18
-        IdLabel.Text = "id:"
-        '
-        'IdTextBox
-        '
-        Me.IdTextBox.Location = New System.Drawing.Point(70, 161)
-        Me.IdTextBox.Name = "IdTextBox"
-        Me.IdTextBox.Size = New System.Drawing.Size(172, 20)
-        Me.IdTextBox.TabIndex = 19
-        '
-        'UserDataSet
-        '
-        Me.UserDataSet.DataSetName = "userDataSet"
-        Me.UserDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'UserDataSetBindingSource
-        '
-        Me.UserDataSetBindingSource.DataSource = Me.UserDataSet
-        Me.UserDataSetBindingSource.Position = 0
-        '
-        'BarangBindingSource
-        '
-        Me.BarangBindingSource.DataMember = "barang"
-        Me.BarangBindingSource.DataSource = Me.UserDataSetBindingSource
-        '
-        'BarangTableAdapter
-        '
-        Me.BarangTableAdapter.ClearBeforeFill = True
-        '
-        'KdDataGridViewTextBoxColumn
-        '
-        Me.KdDataGridViewTextBoxColumn.DataPropertyName = "kd"
-        Me.KdDataGridViewTextBoxColumn.HeaderText = "kd"
-        Me.KdDataGridViewTextBoxColumn.Name = "KdDataGridViewTextBoxColumn"
-        Me.KdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'NamaDataGridViewTextBoxColumn
-        '
-        Me.NamaDataGridViewTextBoxColumn.DataPropertyName = "nama"
-        Me.NamaDataGridViewTextBoxColumn.HeaderText = "nama"
-        Me.NamaDataGridViewTextBoxColumn.Name = "NamaDataGridViewTextBoxColumn"
-        '
-        'HargaDataGridViewTextBoxColumn
-        '
-        Me.HargaDataGridViewTextBoxColumn.DataPropertyName = "harga"
-        Me.HargaDataGridViewTextBoxColumn.HeaderText = "harga"
-        Me.HargaDataGridViewTextBoxColumn.Name = "HargaDataGridViewTextBoxColumn"
-        '
-        'StokDataGridViewTextBoxColumn
-        '
-        Me.StokDataGridViewTextBoxColumn.DataPropertyName = "stok"
-        Me.StokDataGridViewTextBoxColumn.HeaderText = "stok"
-        Me.StokDataGridViewTextBoxColumn.Name = "StokDataGridViewTextBoxColumn"
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        '
-        'PembelianBindingSource
-        '
-        Me.PembelianBindingSource.DataMember = "pembelian"
-        Me.PembelianBindingSource.DataSource = Me.UserDataSetBindingSource
-        '
-        'PembelianTableAdapter
-        '
-        Me.PembelianTableAdapter.ClearBeforeFill = True
-        '
-        'LoginBindingSource
-        '
-        Me.LoginBindingSource.DataMember = "login"
-        Me.LoginBindingSource.DataSource = Me.UserDataSetBindingSource
-        '
-        'LoginTableAdapter
-        '
-        Me.LoginTableAdapter.ClearBeforeFill = True
-        '
-        'IdDataGridViewTextBoxColumn1
-        '
-        Me.IdDataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.IdDataGridViewTextBoxColumn1.HeaderText = "id"
-        Me.IdDataGridViewTextBoxColumn1.Name = "IdDataGridViewTextBoxColumn1"
-        Me.IdDataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'UsernameDataGridViewTextBoxColumn1
-        '
-        Me.UsernameDataGridViewTextBoxColumn1.DataPropertyName = "username"
-        Me.UsernameDataGridViewTextBoxColumn1.HeaderText = "username"
-        Me.UsernameDataGridViewTextBoxColumn1.Name = "UsernameDataGridViewTextBoxColumn1"
-        Me.UsernameDataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'PasswordDataGridViewTextBoxColumn
-        '
-        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
-        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
-        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
-        Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RoleDataGridViewTextBoxColumn
-        '
-        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "role"
-        Me.RoleDataGridViewTextBoxColumn.HeaderText = "role"
-        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
-        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
         '
         'BeliidDataGridViewTextBoxColumn
         '
@@ -902,6 +903,46 @@ Partial Class MenuUtama
         Me.BelijumlahDataGridViewTextBoxColumn.Name = "BelijumlahDataGridViewTextBoxColumn"
         Me.BelijumlahDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'PembelianBindingSource
+        '
+        Me.PembelianBindingSource.DataMember = "pembelian"
+        Me.PembelianBindingSource.DataSource = Me.UserDataSetBindingSource
+        '
+        'BarangTableAdapter
+        '
+        Me.BarangTableAdapter.ClearBeforeFill = True
+        '
+        'PembelianTableAdapter
+        '
+        Me.PembelianTableAdapter.ClearBeforeFill = True
+        '
+        'LoginTableAdapter
+        '
+        Me.LoginTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.loginTableAdapter = Me.LoginTableAdapter
+        Me.TableAdapterManager.pembelianTableAdapter = Me.PembelianTableAdapter
+        Me.TableAdapterManager.UpdateOrder = online_shop.userDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'User_beliTextBox
+        '
+        Me.User_beliTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "user_beli", True))
+        Me.User_beliTextBox.Location = New System.Drawing.Point(109, 200)
+        Me.User_beliTextBox.Name = "User_beliTextBox"
+        Me.User_beliTextBox.Size = New System.Drawing.Size(97, 20)
+        Me.User_beliTextBox.TabIndex = 18
+        '
+        'BarangTextBox
+        '
+        Me.BarangTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PembelianBindingSource1, "barang", True))
+        Me.BarangTextBox.Location = New System.Drawing.Point(222, 199)
+        Me.BarangTextBox.Name = "BarangTextBox"
+        Me.BarangTextBox.Size = New System.Drawing.Size(87, 20)
+        Me.BarangTextBox.TabIndex = 19
+        '
         'MenuUtama
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -922,21 +963,22 @@ Partial Class MenuUtama
         Me.pheader.PerformLayout()
         Me.pUser.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.pBarang.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BarangBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pPembelian.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PembelianBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UserDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UserDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BarangBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PembelianBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LoginBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -978,14 +1020,8 @@ Partial Class MenuUtama
     Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Button3 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents NamaComboBox As ComboBox
-    Friend WithEvents UsernameTextBox As TextBox
-    Friend WithEvents Beli_tanggalDateTimePicker As DateTimePicker
-    Friend WithEvents Beli_jumlahTextBox As TextBox
-    Friend WithEvents Beli_idTextBox As TextBox
     Friend WithEvents KdTextBox As TextBox
     Friend WithEvents StokTextBox As TextBox
     Friend WithEvents IdTextBox As TextBox
@@ -1016,4 +1052,14 @@ Partial Class MenuUtama
     Friend WithEvents BarangDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BelitanggalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BelijumlahDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Beli_tanggalDateTimePicker As DateTimePicker
+    Friend WithEvents PembelianBindingSource1 As BindingSource
+    Friend WithEvents Beli_jumlahTextBox As TextBox
+    Friend WithEvents UsernameTextBox As TextBox
+    Friend WithEvents Beli_idTextBox As TextBox
+    Friend WithEvents TableAdapterManager As userDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents NamaTextBox1 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents BarangTextBox As TextBox
+    Friend WithEvents User_beliTextBox As TextBox
 End Class

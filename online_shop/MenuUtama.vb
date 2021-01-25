@@ -215,11 +215,56 @@ Public Class MenuUtama
         End If
     End Sub
 
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
         Beli_idTextBox.Text = ""
         UsernameTextBox.Text = ""
-        NamaComboBox.Text = ""
+        NamaTextBox.Text = ""
         Beli_jumlahTextBox.Text = ""
         Beli_tanggalDateTimePicker.Value = Now
+    End Sub
+
+    Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick, DataGridView3.CellClick
+        Dim i = DataGridView3.CurrentRow.Index
+        With DataGridView3.Rows(i)
+            Beli_idTextBox.Text = .Cells(0).Value
+            UsernameTextBox.Text = .Cells(1).Value
+            NamaTextBox.Text = .Cells(2).Value
+            Beli_jumlahTextBox.Text = .Cells(7).Value
+            Beli_tanggalDateTimePicker.Value = .Cells(6).Value
+            User_beliTextBox.Text = .Cells(4).Value
+            BarangTextBox.Text = .Cells(5).Value
+        End With
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If Beli_idTextBox.Text.Trim = "" And UsernameTextBox.Text.Trim = "" And NamaTextBox.Text.Trim = "" And Beli_jumlahTextBox.Text.Trim = "" And Beli_jumlahTextBox.Text.Trim = "" Then
+            MsgBox("Harus di Isi Semua!")
+            Return
+        End If
+        If Me.PembelianTableAdapter.UpdateQuery(User_beliTextBox.Text, BarangTextBox.Text, Beli_jumlahTextBox.Text, Beli_tanggalDateTimePicker.Value, Beli_idTextBox.Text) Then
+            Me.PembelianTableAdapter.Fill(UserDataSet.pembelian)
+        End If
+    End Sub
+
+    Private Sub Beli_jumlahTextBox_TextChanged(sender As Object, e As EventArgs) Handles Beli_jumlahTextBox.TextChanged
+        Dim regOnly As New Regex("[^\d]")
+        Beli_jumlahTextBox.Text = regOnly.Replace(Beli_jumlahTextBox.Text, "")
+    End Sub
+
+    Private Sub Beli_jumlahTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Beli_jumlahTextBox.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If Beli_idTextBox.Text.Trim = "" Then
+            MsgBox("Kd Barang Hapus di Isi!")
+            Return
+        End If
+
+        If Me.PembelianTableAdapter.DeleteQuery(Beli_idTextBox.Text) Then
+            PembelianTableAdapter.Fill(UserDataSet.pembelian)
+        End If
     End Sub
 End Class
