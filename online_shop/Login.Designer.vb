@@ -25,7 +25,6 @@ Partial Class Login
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
@@ -35,7 +34,11 @@ Partial Class Login
         Me.lbCapt = New System.Windows.Forms.Label()
         Me.txtCapt = New System.Windows.Forms.TextBox()
         Me.Cache = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -50,15 +53,6 @@ Partial Class Login
         '
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        '
-        'btnClose
-        '
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        resources.ApplyResources(Me.btnClose, "btnClose")
-        Me.btnClose.Image = Global.online_shop.My.Resources.Resources.close
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.TabStop = False
-        Me.btnClose.UseVisualStyleBackColor = True
         '
         'txtEmail
         '
@@ -114,18 +108,43 @@ Partial Class Login
         resources.ApplyResources(Me.Cache, "Cache")
         Me.Cache.Name = "Cache"
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel2.Controls.Add(Me.lbCapt)
+        Me.Panel2.Controls.Add(Me.Cache)
+        Me.Panel2.Controls.Add(Me.txtCapt)
+        resources.ApplyResources(Me.Panel2, "Panel2")
+        Me.Panel2.Name = "Panel2"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Highlight
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btnClose
+        '
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.btnClose, "btnClose")
+        Me.btnClose.Image = Global.online_shop.My.Resources.Resources.close
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.TabStop = False
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'Login
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ControlBox = False
-        Me.Controls.Add(Me.lbCapt)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.btnCencel)
-        Me.Controls.Add(Me.Cache)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtCapt)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtEmail)
         Me.Controls.Add(Me.Panel1)
@@ -133,6 +152,8 @@ Partial Class Login
         Me.Name = "Login"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -150,4 +171,6 @@ Partial Class Login
     Friend WithEvents lbCapt As Label
     Friend WithEvents txtCapt As TextBox
     Friend WithEvents Cache As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Button1 As Button
 End Class

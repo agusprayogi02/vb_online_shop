@@ -11,6 +11,7 @@ Public Class MenuUtama
         'TODO: This line of code loads data into the 'UserDataSet.barang' table. You can move, or remove it, as needed.
         Me.BarangTableAdapter.Fill(Me.UserDataSet.barang)
         ComboRole.Items.Add("Admin")
+        ComboRole.Items.Add("Kasir")
         ComboRole.Items.Add("Customer")
         With btnUser
             .BackColor = Color.Blue

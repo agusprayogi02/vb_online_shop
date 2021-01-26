@@ -15,7 +15,7 @@ Public Class Login
         txtPassword.Text = ""
     End Sub
 
-    Private Sub makeCapt()
+    Public Function makeCapt() As String
         Dim capt() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray
         Dim r As New Random
         Dim i = 0
@@ -26,8 +26,8 @@ Public Class Login
             txt &= capt(index)
             i += 1
         End While
-        lbCapt.Text = txt
-    End Sub
+        Return txt
+    End Function
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Try
@@ -46,24 +46,33 @@ Public Class Login
         If Not txtCapt.Text = lbCapt.Text Then
             MessageBox.Show(Nothing, "Kode Captcha Salah!", "gagal", MessageBoxButtons.OK)
             txtCapt.Text = ""
+            lbCapt.Text = makeCapt()
             Return
         End If
         Call cekkoneksi()
         adapter = New SqlDataAdapter("SELECT * FROM [dbo].[login] WHERE username='" + txtEmail.Text + "' AND password='" + txtPassword.Text + "'", conn)
         adapter.Fill(ds)
         If ds.Tables(0).Rows.Count > 0 Then
-            MenuUtama.Show()
-            MenuUtama.id = ds.Tables(0).Rows(0).Field(Of Integer)("id")
-            Hide()
+            Dim role = ds.Tables(0).Rows(0).Field(Of String)("role")
+            If role = "Admin" Then
+                MenuUtama.Show()
+                MenuUtama.id = ds.Tables(0).Rows(0).Field(Of Integer)("id")
+                Hide()
+            ElseIf role = "Kasir" Then
+            Else
+
+            End If
         Else
             MessageBox.Show(Nothing, "Akun Salah!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
     End Sub
 
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call makeCapt()
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load, Me.Activated
+        lbCapt.Text = makeCapt()
     End Sub
+
+
 
     'Private Sub txtEmail_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEmail.KeyPress
     '    If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
@@ -77,5 +86,10 @@ Public Class Login
         'txtEmail.Text = dig.Replace(txtEmail.Text, "")
 
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Register.Show()
+        Hide()
     End Sub
 End Class
